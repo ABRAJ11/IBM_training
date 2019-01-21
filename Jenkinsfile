@@ -30,10 +30,10 @@ podTemplate(label: 'mypod',
                 set +x
                 DOCKER_USER=`cat /var/run/secrets/registry-account/username`
                 DOCKER_PASSWORD=`cat /var/run/secrets/registry-account/password`
-                docker login -u=\${DOCKER_USER} -p=\${DOCKER_PASSWORD} \${REGISTRY}
+                echo `docker login -u=\${DOCKER_USER} -p=\${DOCKER_PASSWORD} \${REGISTRY}`
                 set -x
 
-                docker push \${REGISTRY}/\${NAMESPACE}/bluecompute-ce-web:${env.BUILD_NUMBER}
+                echo `docker push \${REGISTRY}/\${NAMESPACE}/bluecompute-ce-web:${env.BUILD_NUMBER}`
                 """
             }
         }
